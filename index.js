@@ -41,6 +41,6 @@ class FaustaoTimeFormatter {
 
   // TODO: Add tests
   formattedMinutes() {
-    return `${this.minutes} minutos depois das 8:07 bicho.`
+    return `${this.minutes} minutos depois das 8:07`
   }
 }

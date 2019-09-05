@@ -1,7 +1,7 @@
 
 body {
   margin: 40px;
-  font-size: 1.875em; /* 30px/16=1.875em (reference: https://www.w3schools.com/css/css_font.asp) */
+  font-size: 1.25em; /* 30px/16=1.875em (reference: https://www.w3schools.com/css/css_font.asp) */
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
@@ -48,4 +48,9 @@ body {
 .box {
   border-radius: 5px;
   padding: 10px;
+}
+
+.current-time {
+  font-weight: bold;
+  background-color: #fca903;
 }
