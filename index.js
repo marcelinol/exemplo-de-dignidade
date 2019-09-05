@@ -3,8 +3,8 @@ const query = `query getFaustaoTime {
     minutes
   }
 }`;
-
-fetch('http://localhost:3000/graphql', {
+const url = 'https://gloriosa-api.herokuapp.com/graphql'
+fetch(url, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
