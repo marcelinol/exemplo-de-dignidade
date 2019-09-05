@@ -1,0 +1,51 @@
+
+body {
+  margin: 40px;
+  font-size: 1.875em; /* 30px/16=1.875em (reference: https://www.w3schools.com/css/css_font.asp) */
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.photo {
+  grid-area: photo;
+}
+.photo > img {
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.header {
+  font-size: 75%;
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+  font-size: 50%;
+  margin-top: 20px;
+}
+
+.container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 120px 400px 400px;
+  grid-template-areas:
+    "....... header   header"
+    "sidebar photo    photo"
+    "sidebar content  content"
+    "....... footer   footer";
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  border-radius: 5px;
+  padding: 10px;
+}
