@@ -3,44 +3,55 @@ const query = `query getFaustaoTime {
     minutes
   }
 }`;
-const url = 'https://gloriosa-api.herokuapp.com/graphql'
+const url = "https://gloriosa-api.herokuapp.com/graphql";
 fetch(url, {
-  method: 'POST',
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json"
   },
   body: JSON.stringify({
     query
   })
 })
   .then(r => r.json())
-  .then(data => handleSuccess(data.data))
+  .then(data => handleSuccess(data.data));
 
 function handleSuccess(data) {
-  const formatter = new FaustaoTimeFormatter(data.currentTime.minutes)
-  new DOMManipulator(document).writeCurrentFaustaoTime(formatter.formattedMinutes())
+  const formatter = new FaustaoTimeFormatter(data.currentTime.minutes);
+  new DOMManipulator(document).writeCurrentFaustaoTime(
+    formatter.formattedMinutes()
+  );
 }
 
 class DOMManipulator {
   constructor(dom) {
-    this.dom = dom
+    this.dom = dom;
   }
 
   writeCurrentFaustaoTime(text) {
-    const element = this.dom.getElementById("time-in-faustao-format")
-    element.innerText = text
-    return
+    const element = this.dom.getElementById("time-in-faustao-format");
+    element.innerText = text;
+    return;
+  }
+
+  addFaustaoGloriousPicture() {
+    const oGlorioso = new Image(); // Image constructor
+    oGlorioso.src = `images/fausto${Math.floor(Math.random() * 5)}.jpg`;
+    oGlorioso.alt = "Glorioso faustao";
+    this.dom.getElementById("faustao-picture").appendChild(oGlorioso);
   }
 }
 
 class FaustaoTimeFormatter {
   constructor(minutes) {
-    this.minutes = minutes
+    this.minutes = minutes;
   }
 
   // TODO: Add tests
   formattedMinutes() {
-    return `${this.minutes} minutos depois das 8:07`
+    return `${this.minutes} minutos depois das 8:07`;
   }
 }
+
+new DOMManipulator(document).addFaustaoGloriousPicture();
