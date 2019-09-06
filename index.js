@@ -50,7 +50,11 @@ class FaustaoTimeFormatter {
 
   // TODO: Add tests
   formattedMinutes() {
-    return `${this.minutes} minutos depois das 8:07`;
+    if(this.minutes > 0) {
+      return `${this.minutes} minutos depois das 8:07`;
+    } else {
+      return `${Math.abs(this.minutes)} minutos para as 8:07`;
+    }
   }
 }
 
